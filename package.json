@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Sahasri0.github.io/personalized-meditation-app",
+  "homepage": "https://Sahasri0.github.io/meditation-app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/Sahasri0/meditation-app.git"
   },
   "dependencies": {
     "react": "^19.1.0",
