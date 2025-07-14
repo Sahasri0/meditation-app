@@ -1,0 +1,203 @@
+/** App.css */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+body {
+  margin: 0;
+  font-family: "Delius", cursive;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-light.png'),linear-gradient(180deg, #F7CAC9 0%, #91A8D0 100%);
+  background-blend-mode: overlay;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.delius-regular {
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.app-container {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.bubble {
+  width: 120px;
+  height: 120px;
+  border-radius: 48% 52% 50% 50% / 50% 50% 52% 48%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 182, 193, 0.3),
+    rgba(173, 216, 230, 0.2)
+  );
+  box-shadow:
+    inset -8px -8px 16px rgba(255, 255, 255, 0.4),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.1),
+    0 6px 18px rgba(0, 0, 0, 0.25);
+  animation: float 6s ease-in-out infinite, morph 8s ease-in-out infinite;
+  margin: 0 auto 2rem;
+  position: relative;
+  opacity: 0.95;
+}
+
+/* Gloss overlay */
+.bubble::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 50%;
+  height: 20%;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+/* Float up and down */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Morph shape slightly to feel like water */
+@keyframes morph {
+  0% {
+    border-radius: 30% 47% 45% 47% / 47% 45% 47% 30%;
+  }
+  25% {
+    border-radius: 47% 30% 47% 45% / 30% 47% 47% 45%;
+  }
+  50% {
+    border-radius: 47% 45% 30% 47% / 47% 47% 45% 30%;
+  }
+  75% {
+    border-radius: 45% 47% 47% 30% / 47% 45% 30% 47%;
+  }
+  100% {
+    border-radius: 30% 47% 45% 47% / 47% 45% 47% 30%;
+  }
+}
+
+
+
+.chat-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  z-index: 2;
+}
+
+input[type="text"] {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 12px;
+  width: 250px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-family: "Delius", cursive;
+}
+
+.submit-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding: 0.75rem 1.5rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #7c94be;
+  color: white;
+  font-size: 1rem;
+  font-family: "Delius", cursive;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background-color: #a8c6f9;
+}
+
+
+.duration-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.duration-button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.duration-button:hover {
+  background-color: #7c94be;
+  color:white;
+  transform: scale(0.95); /* Slightly shrink on hover */
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #ffffffcc;
+}
+
+.meditation-display {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #ffffffcc;
+}
+.playing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100vh;
+}
+
+.timer-track {
+  width: 60%;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #f7cac9, #92a8d1);
+  animation: recede linear forwards;
+}
+
+@keyframes recede {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
